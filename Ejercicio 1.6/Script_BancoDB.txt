@@ -1,0 +1,109 @@
+-- Crear la base de datos
+CREATE DATABASE BancoDB;
+GO
+
+-- Usar la base de datos
+USE BancoDB;
+GO
+
+-- Crear la tabla Cliente
+CREATE TABLE Cliente (
+    ClienteID INT PRIMARY KEY IDENTITY(1,1),
+    Nombre NVARCHAR(50),
+    Apellido NVARCHAR(50),
+    DNI NVARCHAR(20)
+);
+GO
+
+-- Crear la tabla TipoCuenta
+CREATE TABLE TipoCuenta (
+    TipoCuentaID INT PRIMARY KEY IDENTITY(1,1),
+    Nombre NVARCHAR(50)
+);
+GO
+
+-- Crear la tabla Cuenta
+CREATE TABLE Cuenta (
+    CuentaID INT PRIMARY KEY IDENTITY(1,1),
+    CBU NVARCHAR(22),
+    Saldo DECIMAL(18, 2),
+    TipoCuentaID INT,
+    UltimoMovimiento DATETIME,
+    ClienteID INT,
+    FOREIGN KEY (TipoCuentaID) REFERENCES TipoCuenta(TipoCuentaID),
+    FOREIGN KEY (ClienteID) REFERENCES Cliente(ClienteID)
+);
+GO
+
+-- Procedimiento para guardar o actualizar un cliente
+CREATE PROCEDURE SP_GUARDAR_CLIENTE
+    @ClienteID INT,
+    @Nombre NVARCHAR(50),
+    @Apellido NVARCHAR(50),
+    @DNI NVARCHAR(20)
+AS
+BEGIN
+    IF @ClienteID = 0
+    BEGIN
+        INSERT INTO Cliente (Nombre, Apellido, DNI)
+        VALUES (@Nombre, @Apellido, @DNI);
+    END
+    ELSE
+    BEGIN
+        UPDATE Cliente
+        SET Nombre = @Nombre, Apellido = @Apellido, DNI = @DNI
+        WHERE ClienteID = @ClienteID;
+    END
+END;
+GO
+
+-- Procedimiento para insertar una cuenta
+CREATE PROCEDURE SP_INSERTAR_CUENTA
+    @CBU NVARCHAR(22),
+    @Saldo DECIMAL(18, 2),
+    @TipoCuentaID INT,
+    @UltimoMovimiento DATETIME,
+    @ClienteID INT
+AS
+BEGIN
+    INSERT INTO Cuenta (CBU, Saldo, TipoCuentaID, UltimoMovimiento, ClienteID)
+    VALUES (@CBU, @Saldo, @TipoCuentaID, @UltimoMovimiento, @ClienteID);
+END;
+GO
+
+-- Procedimiento para insertar un tipo de cuenta
+CREATE PROCEDURE SP_INSERTAR_TIPO_CUENTA
+    @Nombre NVARCHAR(50)
+AS
+BEGIN
+    INSERT INTO TipoCuenta (Nombre)
+    VALUES (@Nombre);
+END;
+GO
+
+-- Procedimiento para recuperar un cliente por ID
+CREATE PROCEDURE SP_RECUPERAR_CLIENTE_POR_ID
+    @ClienteID INT
+AS
+BEGIN
+    SELECT * FROM Cliente WHERE ClienteID = @ClienteID;
+END;
+GO
+
+-- Procedimiento para recuperar todas las cuentas de un cliente
+CREATE PROCEDURE SP_RECUPERAR_CUENTAS_POR_CLIENTE
+    @ClienteID INT
+AS
+BEGIN
+    SELECT * FROM Cuenta WHERE ClienteID = @ClienteID;
+END;
+GO
+
+-- Procedimiento para recuperar todos los tipos de cuenta
+CREATE PROCEDURE SP_RECUPERAR_TIPOS_CUENTA
+AS
+BEGIN
+    SELECT * FROM TipoCuenta;
+END;
+GO
+
