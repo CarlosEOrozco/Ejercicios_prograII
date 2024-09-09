@@ -2127,11 +2127,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\angel\\Desktop\\Ejercicio 1.6\\proyecto[Practica01]\\proyecto[Practica01]\\proyecto[Practica01].csproj",
+      "projectUniqueName": "C:\\Users\\angel\\Desktop\\Carlos Orozco Ejercicios\\Ejercicio 1.6\\proyecto[Practica01]\\proyecto[Practica01]\\proyecto[Practica01].csproj",
       "projectName": "proyecto[Practica01]",
-      "projectPath": "C:\\Users\\angel\\Desktop\\Ejercicio 1.6\\proyecto[Practica01]\\proyecto[Practica01]\\proyecto[Practica01].csproj",
+      "projectPath": "C:\\Users\\angel\\Desktop\\Carlos Orozco Ejercicios\\Ejercicio 1.6\\proyecto[Practica01]\\proyecto[Practica01]\\proyecto[Practica01].csproj",
       "packagesPath": "C:\\Users\\angel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\angel\\Desktop\\Ejercicio 1.6\\proyecto[Practica01]\\proyecto[Practica01]\\obj\\",
+      "outputPath": "C:\\Users\\angel\\Desktop\\Carlos Orozco Ejercicios\\Ejercicio 1.6\\proyecto[Practica01]\\proyecto[Practica01]\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\angel\\AppData\\Roaming\\NuGet\\NuGet.Config",

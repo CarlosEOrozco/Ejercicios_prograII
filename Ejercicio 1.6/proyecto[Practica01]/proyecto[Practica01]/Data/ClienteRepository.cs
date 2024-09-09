@@ -13,58 +13,109 @@ namespace proyecto_Practica01_.Data
 {
     public class ClienteRepository : IClienteRepository
     {
+        // Método para obtener un Cliente por su ID
         public Cliente GetById(int id)
         {
-            Cliente cliente = null; // Se inicializa el cliente como null
+            Cliente cliente = null;  // Inicializa el objeto Cliente como nulo
             var parametros = new List<ParameterSQL>
             {
-                new ParameterSQL("@ClienteID", id) // Se crea un parámetro con el ID del cliente
+                new ParameterSQL("@ClienteID", id)  // Añade el parámetro para buscar por ID
             };
 
-            DataTable t = DataHelper.GetInstance().ExecuteSPQuery("SP_RECUPERAR_CLIENTE_POR_ID", parametros); // Ejecuta el SP y obtiene la tabla
+            // Ejecuta el procedimiento almacenado y obtiene los resultados en una tabla
+            DataTable t = DataHelper.GetInstance().ExecuteSPQuery("SP_RECUPERAR_CLIENTE_POR_ID", parametros);
 
-            if (t != null && t.Rows.Count == 1) // Si hay exactamente un resultado
+            // Si encuentra una fila, mapea los datos a la entidad Cliente
+            if (t != null && t.Rows.Count == 1)
             {
-                DataRow row = t.Rows[0]; // Obtiene la fila de resultados
+                DataRow row = t.Rows[0];
                 cliente = new Cliente
                 {
-                    ClienteID = (int)row["ClienteID"], // Mapea los campos de la tabla a las propiedades del cliente
+                    ClienteID = (int)row["ClienteID"],
                     Nombre = row["Nombre"].ToString(),
                     Apellido = row["Apellido"].ToString(),
                     DNI = row["DNI"].ToString()
                 };
             }
-            return cliente; // Retorna el cliente encontrado o null si no existe
+            return cliente;  // Retorna el cliente o null si no se encontró
         }
 
+        // Método para obtener todos los Clientes (no implementado aquí)
         public List<Cliente> GetAll()
         {
-            // Implementación pendiente
             throw new NotImplementedException();
+        }
+
+        // Método para guardar un nuevo Cliente
+        public bool Save(Cliente cliente)
+        {
+            bool result = true;  // Inicializa el resultado como exitoso
+            SqlConnection cnn = null;
+            SqlTransaction t = null;  // Inicializa la transacción como nula
+
+            try
+            {
+                // Obtiene la conexión desde el DataHelper y la abre
+                cnn = DataHelper.GetInstance().GetConnection();
+                cnn.Open();
+                t = cnn.BeginTransaction();  // Inicia la transacción
+
+                // Crea el comando SQL para insertar o actualizar un cliente y lo asocia a la transacción
+                var cmd = new SqlCommand("SP_GUARDAR_CLIENTE", cnn, t)
+                {
+                    CommandType = CommandType.StoredProcedure  // Define que el comando es un procedimiento almacenado
+                };
+
+                // Añade los parámetros al comando SQL
+                cmd.Parameters.AddWithValue("@ClienteID", cliente.ClienteID);
+                cmd.Parameters.AddWithValue("@Nombre", cliente.Nombre);
+                cmd.Parameters.AddWithValue("@Apellido", cliente.Apellido);
+                cmd.Parameters.AddWithValue("@DNI", cliente.DNI);
+
+                // Ejecuta el comando y verifica que se haya afectado al menos una fila
+                int rowsAffected = cmd.ExecuteNonQuery();
+                if (rowsAffected == 0)
+                {
+                    throw new Exception("No se pudo guardar el cliente.");  // Lanza una excepción si no se afectó ninguna fila
+                }
+
+                t.Commit();  // Confirma la transacción
+            }
+            catch (SqlException ex)
+            {
+                // Captura errores de SQL y realiza el rollback
+                if (t != null)
+                {
+                    t.Rollback();  // Revertir la transacción en caso de error
+                }
+                Console.WriteLine($"Error de SQL: {ex.Message}");  // Muestra el error
+                result = false;  // Indica que la operación falló
+            }
+            catch (Exception ex)
+            {
+                // Captura cualquier otro error y realiza el rollback
+                if (t != null)
+                {
+                    t.Rollback();  // Revertir la transacción en caso de error
+                }
+                Console.WriteLine($"Error: {ex.Message}");  // Muestra el error
+                result = false;  // Indica que la operación falló
+            }
+            finally
+            {
+                // Asegura que la conexión se cierra al final
+                if (cnn != null && cnn.State == ConnectionState.Open)
+                {
+                    cnn.Close();  // Cierra la conexión
+                }
+            }
+
+            return result;  // Retorna el resultado de la operación (true si fue exitosa, false si falló)
         }
 
         public bool SaveOrUpdate(Cliente cliente)
         {
-            bool result = true;
-            var parametros = new List<ParameterSQL>
-            {
-                new ParameterSQL("@ClienteID", cliente.ClienteID),
-                new ParameterSQL("@Nombre", cliente.Nombre),
-                new ParameterSQL("@Apellido", cliente.Apellido),
-                new ParameterSQL("@DNI", cliente.DNI)
-            };
-
-            try
-            {
-                int rowsAffected = DataHelper.GetInstance().ExecuteSPDML("SP_GUARDAR_CLIENTE", parametros); // Ejecuta el SP de guardado
-                result = rowsAffected > 0; // Verifica si al menos una fila fue afectada
-            }
-            catch (SqlException)
-            {
-                result = false; // Si ocurre un error, el resultado es false
-            }
-
-            return result; // Retorna el resultado de la operación
+            throw new NotImplementedException();
         }
     }
 }
