@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\angel\\Desktop\\Carlos Orozco Ejercicios\\Ejercicio 1.6\\proyecto[Practica01]\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E47887D4-1B8E-4739-8836-0CD379DE1F4D}|proyecto[Practica01]\\proyecto[Practica01].csproj|C:\\Users\\angel\\Desktop\\Carlos Orozco Ejercicios\\Ejercicio 1.6\\proyecto[Practica01]\\proyecto[practica01]\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E47887D4-1B8E-4739-8836-0CD379DE1F4D}|proyecto[Practica01]\\proyecto[Practica01].csproj|solutionrelative:proyecto[practica01]\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E47887D4-1B8E-4739-8836-0CD379DE1F4D}|proyecto[Practica01]\\proyecto[Practica01].csproj|C:\\Users\\angel\\Desktop\\Carlos Orozco Ejercicios\\Ejercicio 1.6\\proyecto[Practica01]\\proyecto[practica01]\\data\\clienterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E47887D4-1B8E-4739-8836-0CD379DE1F4D}|proyecto[Practica01]\\proyecto[Practica01].csproj|solutionrelative:proyecto[practica01]\\data\\clienterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E47887D4-1B8E-4739-8836-0CD379DE1F4D}|proyecto[Practica01]\\proyecto[Practica01].csproj|C:\\Users\\angel\\Desktop\\Carlos Orozco Ejercicios\\Ejercicio 1.6\\proyecto[Practica01]\\proyecto[practica01]\\data\\cuentarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E47887D4-1B8E-4739-8836-0CD379DE1F4D}|proyecto[Practica01]\\proyecto[Practica01].csproj|solutionrelative:proyecto[practica01]\\data\\cuentarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E47887D4-1B8E-4739-8836-0CD379DE1F4D}|proyecto[Practica01]\\proyecto[Practica01].csproj|C:\\Users\\angel\\Desktop\\Carlos Orozco Ejercicios\\Ejercicio 1.6\\proyecto[Practica01]\\proyecto[practica01]\\data\\tipocuentarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E47887D4-1B8E-4739-8836-0CD379DE1F4D}|proyecto[Practica01]\\proyecto[Practica01].csproj|solutionrelative:proyecto[practica01]\\data\\tipocuentarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E47887D4-1B8E-4739-8836-0CD379DE1F4D}|proyecto[Practica01]\\proyecto[Practica01].csproj|c:\\users\\angel\\desktop\\carlos orozco ejercicios\\ejercicio 1.6\\proyecto[practica01]\\proyecto[practica01]\\data\\cuentarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E47887D4-1B8E-4739-8836-0CD379DE1F4D}|proyecto[Practica01]\\proyecto[Practica01].csproj|solutionrelative:proyecto[practica01]\\data\\cuentarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E47887D4-1B8E-4739-8836-0CD379DE1F4D}|proyecto[Practica01]\\proyecto[Practica01].csproj|c:\\users\\angel\\desktop\\carlos orozco ejercicios\\ejercicio 1.6\\proyecto[practica01]\\proyecto[practica01]\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E47887D4-1B8E-4739-8836-0CD379DE1F4D}|proyecto[Practica01]\\proyecto[Practica01].csproj|solutionrelative:proyecto[practica01]\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E47887D4-1B8E-4739-8836-0CD379DE1F4D}|proyecto[Practica01]\\proyecto[Practica01].csproj|C:\\Users\\angel\\Desktop\\Carlos Orozco Ejercicios\\Ejercicio 1.6\\proyecto[Practica01]\\proyecto[practica01]\\data\\iclienterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -74,56 +74,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ClienteRepository.cs",
-              "DocumentMoniker": "C:\\Users\\angel\\Desktop\\Carlos Orozco Ejercicios\\Ejercicio 1.6\\proyecto[Practica01]\\proyecto[Practica01]\\Data\\ClienteRepository.cs",
-              "RelativeDocumentMoniker": "proyecto[Practica01]\\Data\\ClienteRepository.cs",
-              "ToolTip": "C:\\Users\\angel\\Desktop\\Carlos Orozco Ejercicios\\Ejercicio 1.6\\proyecto[Practica01]\\proyecto[Practica01]\\Data\\ClienteRepository.cs",
-              "RelativeToolTip": "proyecto[Practica01]\\Data\\ClienteRepository.cs",
-              "ViewState": "AQIAAFkAAAAAAAAAAAAwwHEAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-03T11:52:18.804Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "CuentaRepository.cs",
-              "DocumentMoniker": "C:\\Users\\angel\\Desktop\\Carlos Orozco Ejercicios\\Ejercicio 1.6\\proyecto[Practica01]\\proyecto[Practica01]\\Data\\CuentaRepository.cs",
-              "RelativeDocumentMoniker": "proyecto[Practica01]\\Data\\CuentaRepository.cs",
-              "ToolTip": "C:\\Users\\angel\\Desktop\\Carlos Orozco Ejercicios\\Ejercicio 1.6\\proyecto[Practica01]\\proyecto[Practica01]\\Data\\CuentaRepository.cs",
-              "RelativeToolTip": "proyecto[Practica01]\\Data\\CuentaRepository.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAI0AAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-03T11:52:32.934Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "TipoCuentaRepository.cs",
-              "DocumentMoniker": "C:\\Users\\angel\\Desktop\\Carlos Orozco Ejercicios\\Ejercicio 1.6\\proyecto[Practica01]\\proyecto[Practica01]\\Data\\TipoCuentaRepository.cs",
-              "RelativeDocumentMoniker": "proyecto[Practica01]\\Data\\TipoCuentaRepository.cs",
-              "ToolTip": "C:\\Users\\angel\\Desktop\\Carlos Orozco Ejercicios\\Ejercicio 1.6\\proyecto[Practica01]\\proyecto[Practica01]\\Data\\TipoCuentaRepository.cs",
-              "RelativeToolTip": "proyecto[Practica01]\\Data\\TipoCuentaRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAHsAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-03T11:52:46.797Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\angel\\Desktop\\Carlos Orozco Ejercicios\\Ejercicio 1.6\\proyecto[Practica01]\\proyecto[Practica01]\\Program.cs",
               "RelativeDocumentMoniker": "proyecto[Practica01]\\Program.cs",
               "ToolTip": "C:\\Users\\angel\\Desktop\\Carlos Orozco Ejercicios\\Ejercicio 1.6\\proyecto[Practica01]\\proyecto[Practica01]\\Program.cs",
               "RelativeToolTip": "proyecto[Practica01]\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAnAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEsAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-03T01:59:55.771Z",
               "EditorCaption": ""
@@ -143,6 +104,45 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ClienteRepository.cs",
+              "DocumentMoniker": "C:\\Users\\angel\\Desktop\\Carlos Orozco Ejercicios\\Ejercicio 1.6\\proyecto[Practica01]\\proyecto[Practica01]\\Data\\ClienteRepository.cs",
+              "RelativeDocumentMoniker": "proyecto[Practica01]\\Data\\ClienteRepository.cs",
+              "ToolTip": "C:\\Users\\angel\\Desktop\\Carlos Orozco Ejercicios\\Ejercicio 1.6\\proyecto[Practica01]\\proyecto[Practica01]\\Data\\ClienteRepository.cs",
+              "RelativeToolTip": "proyecto[Practica01]\\Data\\ClienteRepository.cs",
+              "ViewState": "AQIAAJgAAAAAAAAAAAAowL8AAABIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-03T11:52:18.804Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CuentaRepository.cs",
+              "DocumentMoniker": "C:\\Users\\angel\\Desktop\\Carlos Orozco Ejercicios\\Ejercicio 1.6\\proyecto[Practica01]\\proyecto[Practica01]\\Data\\CuentaRepository.cs",
+              "RelativeDocumentMoniker": "proyecto[Practica01]\\Data\\CuentaRepository.cs",
+              "ToolTip": "C:\\Users\\angel\\Desktop\\Carlos Orozco Ejercicios\\Ejercicio 1.6\\proyecto[Practica01]\\proyecto[Practica01]\\Data\\CuentaRepository.cs",
+              "RelativeToolTip": "proyecto[Practica01]\\Data\\CuentaRepository.cs",
+              "ViewState": "AQIAADMAAAAAAAAAAAAowI4AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-03T11:52:32.934Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TipoCuentaRepository.cs",
+              "DocumentMoniker": "C:\\Users\\angel\\Desktop\\Carlos Orozco Ejercicios\\Ejercicio 1.6\\proyecto[Practica01]\\proyecto[Practica01]\\Data\\TipoCuentaRepository.cs",
+              "RelativeDocumentMoniker": "proyecto[Practica01]\\Data\\TipoCuentaRepository.cs",
+              "ToolTip": "C:\\Users\\angel\\Desktop\\Carlos Orozco Ejercicios\\Ejercicio 1.6\\proyecto[Practica01]\\proyecto[Practica01]\\Data\\TipoCuentaRepository.cs",
+              "RelativeToolTip": "proyecto[Practica01]\\Data\\TipoCuentaRepository.cs",
+              "ViewState": "AQIAACkAAAAAAAAAAAAgwEIAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-03T11:52:46.797Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 5,
               "Title": "ICuentaRepository.cs",
               "DocumentMoniker": "C:\\Users\\angel\\Desktop\\Carlos Orozco Ejercicios\\Ejercicio 1.6\\proyecto[Practica01]\\proyecto[Practica01]\\Data\\ICuentaRepository.cs",
@@ -151,8 +151,7 @@
               "RelativeToolTip": "proyecto[Practica01]\\Data\\ICuentaRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-03T11:51:51.73Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-03T11:51:51.73Z"
             },
             {
               "$type": "Document",

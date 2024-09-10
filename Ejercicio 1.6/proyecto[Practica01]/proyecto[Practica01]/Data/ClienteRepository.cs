@@ -115,7 +115,81 @@ namespace proyecto_Practica01_.Data
 
         public bool SaveOrUpdate(Cliente cliente)
         {
-            throw new NotImplementedException();
+            bool result = true;
+            SqlConnection cnn = null;
+            SqlTransaction t = null;
+
+            try
+            {
+                cnn = DataHelper.GetInstance().GetConnection();
+                cnn.Open();
+                t = cnn.BeginTransaction();  // Comienza la transacción
+
+                SqlCommand cmd;
+
+                // Si el ClienteID es 0, es una nueva inserción
+                if (cliente.ClienteID == 0)
+                {
+                    // Crear un nuevo comando para insertar un cliente
+                    cmd = new SqlCommand("SP_GUARDAR_CLIENTE", cnn, t)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
+
+                    cmd.Parameters.AddWithValue("@ClienteID", 0);  // ClienteID es 0 porque estamos insertando
+                }
+                else
+                {
+                    // Crear un nuevo comando para actualizar un cliente existente
+                    cmd = new SqlCommand("SP_GUARDAR_CLIENTE", cnn, t)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
+
+                    cmd.Parameters.AddWithValue("@ClienteID", cliente.ClienteID);  // Actualización de un cliente existente
+                }
+
+                // Añadir los parámetros comunes tanto para insertar como para actualizar
+                cmd.Parameters.AddWithValue("@Nombre", cliente.Nombre);
+                cmd.Parameters.AddWithValue("@Apellido", cliente.Apellido);
+                cmd.Parameters.AddWithValue("@DNI", cliente.DNI);
+
+                // Ejecutar el comando
+                int rowsAffected = cmd.ExecuteNonQuery();
+                if (rowsAffected == 0)
+                {
+                    throw new Exception("No se pudo guardar o actualizar el cliente.");
+                }
+
+                t.Commit();  // Confirmar la transacción
+            }
+            catch (SqlException ex)
+            {
+                if (t != null)
+                {
+                    t.Rollback();  // Revertir la transacción en caso de error
+                }
+                Console.WriteLine($"Error de SQL: {ex.Message}");
+                result = false;
+            }
+            catch (Exception ex)
+            {
+                if (t != null)
+                {
+                    t.Rollback();  // Revertir la transacción en caso de error
+                }
+                Console.WriteLine($"Error: {ex.Message}");
+                result = false;
+            }
+            finally
+            {
+                if (cnn != null && cnn.State == ConnectionState.Open)
+                {
+                    cnn.Close();  // Cerrar la conexión
+                }
+            }
+
+            return result;  // Retornar true si la operación fue exitosa
         }
     }
 }
