@@ -1,0 +1,69 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\angel\\Desktop\\Carlos Orozco Ejercicios\\EJMoneda\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{01ED60F6-8E31-4AD7-A056-52A0BACC8462}|EJMoneda\\EJMoneda.csproj|c:\\users\\angel\\desktop\\carlos orozco ejercicios\\ejmoneda\\ejmoneda\\controllers\\monedacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01ED60F6-8E31-4AD7-A056-52A0BACC8462}|EJMoneda\\EJMoneda.csproj|solutionrelative:ejmoneda\\controllers\\monedacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01ED60F6-8E31-4AD7-A056-52A0BACC8462}|EJMoneda\\EJMoneda.csproj|C:\\Users\\angel\\Desktop\\Carlos Orozco Ejercicios\\EJMoneda\\ejmoneda\\models\\moneda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01ED60F6-8E31-4AD7-A056-52A0BACC8462}|EJMoneda\\EJMoneda.csproj|solutionrelative:ejmoneda\\models\\moneda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01ED60F6-8E31-4AD7-A056-52A0BACC8462}|EJMoneda\\EJMoneda.csproj|C:\\Users\\angel\\Desktop\\Carlos Orozco Ejercicios\\EJMoneda\\ejmoneda\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01ED60F6-8E31-4AD7-A056-52A0BACC8462}|EJMoneda\\EJMoneda.csproj|solutionrelative:ejmoneda\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Moneda.cs",
+              "DocumentMoniker": "C:\\Users\\angel\\Desktop\\Carlos Orozco Ejercicios\\EJMoneda\\EJMoneda\\Models\\Moneda.cs",
+              "RelativeDocumentMoniker": "EJMoneda\\Models\\Moneda.cs",
+              "ToolTip": "C:\\Users\\angel\\Desktop\\Carlos Orozco Ejercicios\\EJMoneda\\EJMoneda\\Models\\Moneda.cs",
+              "RelativeToolTip": "EJMoneda\\Models\\Moneda.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T12:18:19.41Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MonedaController.cs",
+              "DocumentMoniker": "C:\\Users\\angel\\Desktop\\Carlos Orozco Ejercicios\\EJMoneda\\EJMoneda\\Controllers\\MonedaController.cs",
+              "RelativeDocumentMoniker": "EJMoneda\\Controllers\\MonedaController.cs",
+              "ToolTip": "C:\\Users\\angel\\Desktop\\Carlos Orozco Ejercicios\\EJMoneda\\EJMoneda\\Controllers\\MonedaController.cs",
+              "RelativeToolTip": "EJMoneda\\Controllers\\MonedaController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T12:15:41.368Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\angel\\Desktop\\Carlos Orozco Ejercicios\\EJMoneda\\EJMoneda\\Program.cs",
+              "RelativeDocumentMoniker": "EJMoneda\\Program.cs",
+              "ToolTip": "C:\\Users\\angel\\Desktop\\Carlos Orozco Ejercicios\\EJMoneda\\EJMoneda\\Program.cs",
+              "RelativeToolTip": "EJMoneda\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T12:13:32.066Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
