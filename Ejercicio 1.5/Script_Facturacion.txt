@@ -153,3 +153,41 @@ BEGIN
     FROM Articulo;
 END
 GO
+
+
+CREATE PROCEDURE sp_EliminarFactura
+    @NroFactura INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Elimina los detalles relacionados primero (por la relación FK)
+    DELETE FROM DetalleFactura WHERE NroFactura = @NroFactura;
+
+    -- Elimina la factura
+    DELETE FROM Factura WHERE NroFactura = @NroFactura;
+END
+GO
+
+
+CREATE PROCEDURE sp_EliminarArticulo
+    @ArticuloId INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DELETE FROM Articulo WHERE Id = @ArticuloId;
+END
+GO
+
+
+
+CREATE PROCEDURE sp_EliminarFormaPago
+    @FormaPagoId INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DELETE FROM FormaPago WHERE Id = @FormaPagoId;
+END
+GO

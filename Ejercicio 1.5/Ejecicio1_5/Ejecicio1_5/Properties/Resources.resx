@@ -117,7 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="cnn" xml:space="preserve">
-    <value>Data Source=ANGEL-PC;Initial Catalog=BancoDB;Integrated Security=True</value>
+  <data name="cnnString" xml:space="preserve">
+    <value>Data Source=ANGEL-PC;Initial Catalog=FacturacionDB;Integrated Security=True</value>
   </data>
 </root>

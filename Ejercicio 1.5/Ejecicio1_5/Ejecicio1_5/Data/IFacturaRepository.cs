@@ -11,5 +11,7 @@ namespace Ejecicio1_5.Data
     {
         void GuardarFactura(Factura factura);
         Factura ObtenerFactura(int nroFactura);
+
+        List<Factura> ListarFacturas(); // Firma del método ListarFacturas
     }
 }

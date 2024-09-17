@@ -3,13 +3,14 @@ using Ejecicio1_5.Domain;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Ejecicio1_5.Data
 {
-    internal class FacturaRepository : IFacturaRepository
+    public class FacturaRepository : IFacturaRepository
     {
         private readonly DataHelper _dataHelper;
 
@@ -95,20 +96,36 @@ namespace Ejecicio1_5.Data
 
         public List<Factura> ListarFacturas()
         {
-            var dataTable = _dataHelper.ExecuteSPQuery("sp_ListarFacturas", null);
             List<Factura> facturas = new List<Factura>();
 
-            foreach (DataRow row in dataTable.Rows)
+            // Ejemplo de cómo listar facturas desde la base de datos
+            SqlConnection cnn = DataHelper.GetInstance().GetConnection();
+            try
             {
-                Factura factura = new Factura
-                {
-                    NroFactura = Convert.ToInt32(row["nroFactura"]),
-                    Fecha = Convert.ToDateTime(row["fecha"]),
-                    Cliente = row["cliente"].ToString(),
-                    FormaPago = new FormaPago { Id = Convert.ToInt32(row["formaPagoId"]), Nombre = row["formaPagoNombre"].ToString() }
-                };
+                cnn.Open();
+                SqlCommand cmd = new SqlCommand("SP_LISTAR_FACTURAS", cnn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataReader reader = cmd.ExecuteReader();
 
-                facturas.Add(factura);
+                while (reader.Read())
+                {
+                    var factura = new Factura
+                    {
+                        NroFactura = Convert.ToInt32(reader["FacturaID"]),
+                        Fecha = Convert.ToDateTime(reader["Fecha"]),
+                        Cliente = reader["Cliente"].ToString(),
+                        // Cargar otras propiedades
+                    };
+                    facturas.Add(factura);
+                }
+                reader.Close();
+            }
+            finally
+            {
+                if (cnn != null && cnn.State == ConnectionState.Open)
+                {
+                    cnn.Close();
+                }
             }
 
             return facturas;
@@ -142,5 +159,104 @@ namespace Ejecicio1_5.Data
 
             return detalles;
         }
+
+        public bool Save(Factura factura)
+        {
+            bool result = true;
+            SqlConnection cnn = null;
+            SqlTransaction transaction = null;
+
+            try
+            {
+                cnn = DataHelper.GetInstance().GetConnection();
+                cnn.Open();
+                transaction = cnn.BeginTransaction();
+
+                // Guardar Factura
+                var cmd = new SqlCommand("sp_GuardarFactura", cnn, transaction)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("@fecha", factura.Fecha);
+                cmd.Parameters.AddWithValue("@cliente", factura.Cliente);
+                cmd.Parameters.AddWithValue("@formaPagoId", factura.FormaPago.Id);
+                int rowsAffected = cmd.ExecuteNonQuery();
+
+                if (rowsAffected == 0)
+                {
+                    throw new Exception("No se pudo guardar la factura.");
+                }
+
+                // Commit transaction
+                transaction.Commit();
+            }
+            catch (Exception ex)
+            {
+                if (transaction != null)
+                {
+                    transaction.Rollback();
+                }
+                Console.WriteLine($"Error: {ex.Message}");
+                result = false;
+            }
+            finally
+            {
+                if (cnn != null && cnn.State == ConnectionState.Open)
+                {
+                    cnn.Close();
+                }
+            }
+
+            return result;
+        }
+
+        public bool Delete(int nroFactura)
+        {
+            bool result = true;
+            SqlConnection cnn = null;
+            SqlTransaction transaction = null;
+
+            try
+            {
+                cnn = DataHelper.GetInstance().GetConnection();
+                cnn.Open();
+                transaction = cnn.BeginTransaction();
+
+                // Eliminar Factura
+                var cmd = new SqlCommand("sp_EliminarFactura", cnn, transaction)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("@nroFactura", nroFactura);
+                int rowsAffected = cmd.ExecuteNonQuery();
+
+                if (rowsAffected == 0)
+                {
+                    throw new Exception("No se pudo eliminar la factura.");
+                }
+
+                transaction.Commit();
+            }
+            catch (Exception ex)
+            {
+                if (transaction != null)
+                {
+                    transaction.Rollback();
+                }
+                Console.WriteLine($"Error: {ex.Message}");
+                result = false;
+            }
+            finally
+            {
+                if (cnn != null && cnn.State == ConnectionState.Open)
+                {
+                    cnn.Close();
+                }
+            }
+
+            return result;
+        }
+
+        
     }
 }

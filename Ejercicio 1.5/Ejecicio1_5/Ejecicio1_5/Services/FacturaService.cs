@@ -31,5 +31,10 @@ namespace Ejecicio1_5.Services
         {
             return _facturaRepository.ListarFacturas();
         }
+
+        public List<Factura> ObtenerTodasLasFacturas()
+        {
+            return _facturaRepository.ListarFacturas(); // Llamada correcta al método
+        }
     }
 }

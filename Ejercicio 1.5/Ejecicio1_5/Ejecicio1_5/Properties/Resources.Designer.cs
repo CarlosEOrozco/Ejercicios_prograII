@@ -61,11 +61,11 @@ namespace Ejecicio1_5.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Data Source=ANGEL-PC;Initial Catalog=BancoDB;Integrated Security=True.
+        ///   Busca una cadena traducida similar a Data Source=ANGEL-PC;Initial Catalog=FacturacionDB;Integrated Security=True.
         /// </summary>
-        internal static string cnn {
+        internal static string cnnString {
             get {
-                return ResourceManager.GetString("cnn", resourceCulture);
+                return ResourceManager.GetString("cnnString", resourceCulture);
             }
         }
     }
