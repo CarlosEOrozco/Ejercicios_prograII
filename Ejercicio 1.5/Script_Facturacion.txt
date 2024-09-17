@@ -1,0 +1,155 @@
+--Script Facturacion
+
+CREATE DATABASE FacturacionDB;
+GO
+
+USE FacturacionDB;
+GO
+
+--Tablas
+CREATE TABLE FormaPago (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Nombre NVARCHAR(50) NOT NULL
+);
+
+CREATE TABLE Articulo (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Nombre NVARCHAR(100) NOT NULL,
+    PrecioUnitario DECIMAL(18,2) NOT NULL
+);
+
+CREATE TABLE Factura (
+    NroFactura INT IDENTITY(1,1) PRIMARY KEY,
+    Fecha DATETIME NOT NULL,
+    Cliente NVARCHAR(100) NOT NULL,
+    FormaPagoId INT NOT NULL,
+    FOREIGN KEY (FormaPagoId) REFERENCES FormaPago(Id)
+);
+
+CREATE TABLE DetalleFactura (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    NroFactura INT NOT NULL,
+    ArticuloId INT NOT NULL,
+    Cantidad INT NOT NULL,
+    FOREIGN KEY (NroFactura) REFERENCES Factura(NroFactura),
+    FOREIGN KEY (ArticuloId) REFERENCES Articulo(Id)
+);
+
+--Procedimiento de almacenado
+CREATE PROCEDURE sp_GuardarFactura
+    @fecha DATETIME,
+    @cliente NVARCHAR(100),
+    @formaPagoId INT
+AS
+BEGIN
+    INSERT INTO Factura (Fecha, Cliente, FormaPagoId)
+    VALUES (@fecha, @cliente, @formaPagoId);
+END
+GO
+
+
+CREATE PROCEDURE sp_ObtenerFactura
+    @nroFactura INT
+AS
+BEGIN
+    SELECT f.NroFactura, f.Fecha, f.Cliente, f.FormaPagoId, fp.Nombre AS FormaPagoNombre
+    FROM Factura f
+    JOIN FormaPago fp ON f.FormaPagoId = fp.Id
+    WHERE f.NroFactura = @nroFactura;
+END
+GO
+
+CREATE PROCEDURE sp_ListarFacturas
+AS
+BEGIN
+    SELECT f.NroFactura, f.Fecha, f.Cliente, f.FormaPagoId, fp.Nombre AS FormaPagoNombre
+    FROM Factura f
+    JOIN FormaPago fp ON f.FormaPagoId = fp.Id;
+END
+GO
+
+
+CREATE PROCEDURE sp_GuardarDetalleFactura
+    @nroFactura INT,
+    @articuloId INT,
+    @cantidad INT
+AS
+BEGIN
+    INSERT INTO DetalleFactura (NroFactura, ArticuloId, Cantidad)
+    VALUES (@nroFactura, @articuloId, @cantidad);
+END
+GO
+
+
+CREATE PROCEDURE sp_ObtenerDetallesFactura
+    @nroFactura INT
+AS
+BEGIN
+    SELECT df.ArticuloId, a.Nombre AS ArticuloNombre, a.PrecioUnitario, df.Cantidad
+    FROM DetalleFactura df
+    JOIN Articulo a ON df.ArticuloId = a.Id
+    WHERE df.NroFactura = @nroFactura;
+END
+GO
+
+
+CREATE PROCEDURE sp_GuardarFormaPago
+    @nombre NVARCHAR(50)
+AS
+BEGIN
+    INSERT INTO FormaPago (Nombre)
+    VALUES (@nombre);
+END
+GO
+
+
+CREATE PROCEDURE sp_ObtenerFormaPago
+    @id INT
+AS
+BEGIN
+    SELECT Id, Nombre
+    FROM FormaPago
+    WHERE Id = @id;
+END
+GO
+
+
+
+CREATE PROCEDURE sp_ListarFormasPago
+AS
+BEGIN
+    SELECT Id, Nombre
+    FROM FormaPago;
+END
+GO
+
+
+CREATE PROCEDURE sp_GuardarArticulo
+    @nombre NVARCHAR(100),
+    @precioUnitario DECIMAL(18,2)
+AS
+BEGIN
+    INSERT INTO Articulo (Nombre, PrecioUnitario)
+    VALUES (@nombre, @precioUnitario);
+END
+GO
+
+
+CREATE PROCEDURE sp_ObtenerArticulo
+    @id INT
+AS
+BEGIN
+    SELECT Id, Nombre, PrecioUnitario
+    FROM Articulo
+    WHERE Id = @id;
+END
+GO
+
+
+CREATE PROCEDURE sp_ListarArticulos
+AS
+BEGIN
+    SELECT Id, Nombre, PrecioUnitario
+    FROM Articulo;
+END
+GO
